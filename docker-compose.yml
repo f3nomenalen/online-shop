@@ -1,0 +1,33 @@
+services:
+ nginx:
+   image: nginx
+   ports:
+    - "80:80"
+   volumes:
+    - /home/f3nomenalen/projects/online-shop/Docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    - /home/f3nomenalen/projects/online-shop/Docker/nginx:/var/www/html
+   restart: always
+   depends_on:
+    - php-fpm
+    - postgres
+
+ php-fpm:
+   image: php:8.1-fpm
+   build: /Docker/php/
+   volumes:
+    - /home/f3nomenalen/projects/online-shop/Docker/src/public:/var/www/html
+
+ postgres:
+   image: postgres:13.1
+   environment:
+    POSTGRES_USER: user
+    POSTGRES_PASSWORD: pass
+    POSTGRES_DB: mydb
+   ports:
+    - "54322:5432"
+
+
+
+
+
+
