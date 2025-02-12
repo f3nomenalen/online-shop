@@ -12,9 +12,25 @@
 <div id="container">
         <form id="signin" method="" action="handle_registration_form.php" autocomplete="off">
         <input type="text" id="name" name="name" placeholder="Имя" />
+            <?php if (isset($errors['name'])): ?>
+            <?php echo $errors['name']; ?>
+            <?php endif; ?>
+
         <input type="text" id="email" name="email" placeholder="Email" />
+                <?php if (isset($errors['email'])): ?>
+                <?php echo $errors['email']; ?>
+                <?php endif; ?>
+
         <input type="password" id="psw" name="psw" placeholder="Пароль" />
+                <?php if (isset($errors['psw'])): ?>
+                <?php echo $errors['psw']; ?>
+                <?php endif; ?>
+
         <input type="password" placeholder="Повторите пароль" name="psw-repeat" id="psw-repeat" required>
+                <?php if (isset($errors['psw-repeat'])): ?>
+                <?php echo $errors['psw-repeat']; ?>
+                <?php endif; ?>
+
         <button type="submit">&#xf0da;</button>
         <p>forgot your password? <a href="#">click here</a></p>
     </form>
