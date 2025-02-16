@@ -10,11 +10,12 @@
 <body>
 <h1>РЕГИСТРАЦИЯ</h1>
 <div id="container">
-        <form id="signin" method="" action="handle_registration_form.php" autocomplete="off">
+        <form id="signin" method="" action="handle_registration_form.php">
         <input type="text" id="name" name="name" placeholder="Имя" />
-            <?php if (isset($errors['name'])): ?>
-            <?php echo $errors['name']; ?>
-            <?php endif; ?>
+                 <?php if (isset($errors['name'])):  ?>
+                 <label style="color: red"><?php echo $errors['name'];?></label>
+                 <?php endif; ?>
+
 
         <input type="text" id="email" name="email" placeholder="Email" />
                 <?php if (isset($errors['email'])): ?>
